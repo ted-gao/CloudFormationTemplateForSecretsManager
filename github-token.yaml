@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion : 2010-09-09
+Description : A simple template to create a single secret in Secret Manager
+Parameters:
+  TokenString:
+    Type: String
+    Description: Enter the github personal access token to be saved as the secret
+Resources:
+  GithubToken:
+    Type: AWS::SecretsManager::Secret
+    Properties: 
+      Description: github personal access token
+      Name: github-token
+      SecretString: 
+        Ref: TokenString
